@@ -1,0 +1,30 @@
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+df = pd.read_csv('data.csv')
+
+print(df)
+# %% Thời gian vượt qua từng màn
+labels = ['1', '2', '3', '4', '5']
+values = df.iloc[-1:, 5:10].squeeze()
+
+plt.bar(labels, values)
+plt.title("Thời gian vượt qua từng màn")
+plt.xlabel("Level")
+plt.ylabel("Thời gian (s)")
+plt.show()
+# %% Số lượng chết mỗi màn
+values = df.iloc[-1:, 0:5].squeeze()
+labels = np.arange(0, 5, 1)
+
+plt.bar(labels, values)
+plt.title("Số lượng chết mỗi màn")
+plt.xlabel("Level")
+plt.ylabel("Lần chết")
+plt.show()
+# %% Màn vượt qua nhanh nhất
+print()
+
+# %%
